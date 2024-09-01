@@ -1,0 +1,29 @@
+import ExplainPageStyled from './styled';
+
+interface DataProps {
+    handleCloseExplain: () => void;
+    showModal: boolean;
+}
+
+const ExplainPage = ({ handleCloseExplain, showModal }: DataProps) => {
+    return (
+        <>
+            <ExplainPageStyled>
+                <div className="explainPageWrap">
+                    <div className="Deep">Deep</div>
+                    <div className="explainBox">
+                        <div>
+                            <div className="WelcomeText">"Welcome to DeepVelop"</div>
+                            <div className="smallText">deep + develop</div>
+                        </div>
+                        <div className="explain1">deep의 깊은과 devlop의 합성어</div>
+                        <div className="explain2">자기개발을 깊게 하고 싶은 여러분을 위해 준비했습니다</div>
+                    </div>
+                    <div className="Velop">Velop</div>
+                    <div>{showModal ? <div onClick={handleCloseExplain}>오늘 하루 보지 않기</div> : <></>}</div>
+                </div>
+            </ExplainPageStyled>
+        </>
+    );
+};
+export default ExplainPage;

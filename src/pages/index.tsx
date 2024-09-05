@@ -26,9 +26,6 @@ export default function Home() {
     };
 
     const handleOpenExplain = () => {
-        // const now = new Date().getTime();
-        // const expireTime = now + 24 * 60 * 60 * 1000; // 24시간을 밀리초로 계산
-        // localStorage.setItem('explainModal', expireTime.toString());
         localStorage.removeItem('explainModal');
         setShowModal(true);
     };

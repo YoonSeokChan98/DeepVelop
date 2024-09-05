@@ -21,14 +21,21 @@ const Header = () => {
                         <div className="nav">
                             <div
                                 onClick={() => {
-                                    router.push('explain');
+                                    router.push('/deepvelop');
+                                }}
+                            >
+                                main
+                            </div>
+                            <div
+                                onClick={() => {
+                                    router.push('/explain');
                                 }}
                             >
                                 explain
                             </div>
                             <div
                                 onClick={() => {
-                                    router.push('myblog');
+                                    router.push('/myblog');
                                 }}
                             >
                                 my blog

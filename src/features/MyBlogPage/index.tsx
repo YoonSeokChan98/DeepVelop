@@ -4,6 +4,7 @@ import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 
 interface Post {
+    id: any
     title: string;
     tag: string;
     content: string;
@@ -39,21 +40,17 @@ const MyBlogPage = () => {
         localStorage.removeItem('posts');
         setPosts([]);
     };
-    const postList = posts?.map((x, i) => {
-        return (
-            <div key={i + 'postList'}>
-                <PostList item={x} />
-            </div>
-        );
-    });
+    const postList = posts?.map((post)=>(
+        <PostList key={post.id} item={post}/>
+    ));
 
     return (
         <>
             <MyBlogPageStyled>
                 <div className='myBlogWrap'>
-                    <div>"유저이름" Blog</div>
+                    <div className='userName'>"유저이름" Blog</div>
                     <div className="postWrap">
-                        <div>블로그 게시물</div>
+                        <div className='postTitle'>Post List</div>
                         <div className="postList">{postList}</div>
                     </div>
                     <div className="writePostBtn">
@@ -65,6 +62,8 @@ const MyBlogPage = () => {
                             글 작성하러가기
                         </div>
                     </div>
+                    <div className='topBtn'><a href='#'>Top</a></div>
+                    <br/>
                     <div
                         // style={{display:'none'}}
                         onClick={() => {

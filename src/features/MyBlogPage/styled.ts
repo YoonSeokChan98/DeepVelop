@@ -5,12 +5,27 @@ const MyBlogPageStyled = styled.div`
         display: flex;
         flex-direction: column;
         align-items: center;
+        .userName {
+            font-size: 1.5rem;
+            border-bottom: 1px solid;
+            margin-bottom: 10px;
+        }
         .postWrap {
+            /* border-top: 1px solid; */
             display: flex;
             flex-direction: column;
-            justify-content: center;
+            align-items: center;
+            width: 80%;
+            .postTitle {
+                /* border-bottom: 1px solid; */
+                font-size: 3rem;
+            }
             .postList {
-                display: flex;
+                max-width: 1000px;
+                width: 100%;
+                padding: 10px;
+                align-items: center;
+                /* font-size: 2em; */
             }
         }
         .writePostBtn {
@@ -29,6 +44,23 @@ const MyBlogPageStyled = styled.div`
                 background-image: linear-gradient(transparent 95%, #000 80%);
             }
             div:hover {
+                background-size: 100% 100%;
+            }
+        }
+        .topBtn {
+            a {
+                text-decoration: none;
+                color: #000;
+                font-size: 2rem;
+                background-image: linear-gradient(transparent calc(100% - 3px), #000 3px);
+                background-repeat: no-repeat;
+                background-size: 0% 100%;
+                transition: background-size 0.5s;
+                cursor: pointer;
+                margin: 10px 20px;
+                background-image: linear-gradient(transparent 95%, #000 80%);
+            }
+            a:hover {
                 background-size: 100% 100%;
             }
         }

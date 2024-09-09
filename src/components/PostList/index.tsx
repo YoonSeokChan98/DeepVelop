@@ -1,6 +1,7 @@
 import React from 'react';
 import PostListStyled from './styled';
 import { useRouter } from 'next/router';
+import coverImg from '../../assets/images/leather.jpg';
 // import PostListStyled from './PostListStyled';
 
 interface PostListProps {
@@ -14,10 +15,12 @@ interface PostListProps {
 }
 
 const PostList = ({ item }: PostListProps) => {
+    // console.log(coverImg);
+
     if (!item) {
         return <div>게시물이 없습니다.</div>;
     }
-    const { id, title, tag, date } = item;
+    const { id, title, tag, date, content } = item;
 
     const router = useRouter();
 
@@ -27,12 +30,28 @@ const PostList = ({ item }: PostListProps) => {
 
     return (
         <PostListStyled>
-            <div onClick={handleClick}>
-                <div className="postListWrap">
+            <div className="WrapBox" onClick={handleClick}>
+                <div className="post">
+                    <div className="card">
+                        <div className="cover">
+                            <div>
+                                <img src={coverImg.src} />
+                            </div>
+                            <div className="title">{title}</div>
+                            <div className="date">{date}</div>
+                        </div>
+                        <div className="contentBox">
+                            <div className="tag">{tag}</div>
+                            <div className="content">{content}</div>
+                        </div>
+                    </div>
+                </div>
+
+                {/* <div className="postListWrap">
                     <div className="date">{date}</div>
                     <div className="title">{title}</div>
                     <div className="tag">{tag}</div>
-                </div>
+                </div> */}
             </div>
         </PostListStyled>
     );

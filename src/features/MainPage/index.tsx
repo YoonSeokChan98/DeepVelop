@@ -52,7 +52,7 @@ const MainPage = ({ handleOpenExplain }: DataProps, { name, title, info, img, li
                             className="swiperWrap"
                             centeredSlides={true}
                             loop={true}
-                            autoplay={{ delay: 3000, disableOnInteraction: false }}
+                            autoplay={{ delay: 4000, disableOnInteraction: false }}
                             modules={[Navigation, Pagination, Autoplay]}
                             spaceBetween={0}
                             slidesPerView={1}
@@ -60,10 +60,7 @@ const MainPage = ({ handleOpenExplain }: DataProps, { name, title, info, img, li
                             {jobOpeningSwiper}
                         </Swiper>
                     </div>
-                    {/* 인기 포트폴리오 */}
-                    <div></div>
-                    {/* 인기 블로그 */}
-                    <div>
+                    <div className='mainPostWrap'>
                         <MainPost />
                     </div>
                 </div>

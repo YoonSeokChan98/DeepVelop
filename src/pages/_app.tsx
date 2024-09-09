@@ -1,3 +1,4 @@
+import WiseSaying from '@/components/WiseSaying';
 import Footer from '@/features/Footer';
 import Header from '@/features/Header';
 import '@/styles/globals.css';
@@ -9,6 +10,7 @@ export default function App({ Component, pageProps }: AppProps) {
         <>
             <AppStyled>
                 <Header />
+                {/* <WiseSaying /> */}
                 <Component {...pageProps} />
                 <Footer />
             </AppStyled>

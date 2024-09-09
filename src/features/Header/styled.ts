@@ -11,6 +11,8 @@ const HeaderStyled = styled.div`
             justify-content: space-between;
             .logo {
                 div {
+                    width: 90px;
+                    text-align: center;
                     font-size: large;
                     background-image: linear-gradient(transparent calc(100% - 3px), #000 3px);
                     background-repeat: no-repeat;
@@ -27,6 +29,11 @@ const HeaderStyled = styled.div`
             .nav {
                 display: flex;
                 div {
+                    /* border: 1px solid; */
+                    width: 90px;
+                    text-align: center;
+                    /* margin: 0 10px; */
+                    /* padding-right: 10px; */
                     font-size: large;
                     background-image: linear-gradient(transparent calc(100% - 3px), #000 3px);
                     background-repeat: no-repeat;

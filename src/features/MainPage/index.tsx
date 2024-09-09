@@ -7,6 +7,9 @@ import { Navigation, Pagination, Autoplay } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { jobOpeningData } from '@/utils/data';
 import JobOpening from '@/components/JobOpening';
+import WiseSaying from '@/components/WiseSaying';
+import PostList from '@/components/PostList';
+import MainPost from '@/components/MainPost';
 
 interface DataProps {
     handleOpenExplain: () => void;
@@ -34,26 +37,25 @@ const MainPage = ({ handleOpenExplain }: DataProps, { name, title, info, img, li
             <div>현재 공고가 없습니다!</div>
         </>
     );
+
     return (
         <>
             <MainPageStyled>
                 <div className="mainPageWrap">
-                    <div onClick={handleOpenExplain}>test용 / 다시보기</div>
-                    <div>메인입니다~~~~</div>
-                    {/* swiper */}
+                    {/* <div onClick={handleOpenExplain}>test용 / 다시보기</div>
+                    <div>메인입니다~~~~</div> */}
+                    <div className="wiseSaying">
+                        <WiseSaying />
+                    </div>
                     <div>
                         <Swiper
                             className="swiperWrap"
                             centeredSlides={true}
                             loop={true}
-                            // speed={100}
                             autoplay={{ delay: 3000, disableOnInteraction: false }}
                             modules={[Navigation, Pagination, Autoplay]}
                             spaceBetween={0}
                             slidesPerView={1}
-                            // navigation
-                            // pagination={{ clickable: true }}
-                            // scrollbar={{ draggable: true }}
                         >
                             {jobOpeningSwiper}
                         </Swiper>
@@ -61,7 +63,9 @@ const MainPage = ({ handleOpenExplain }: DataProps, { name, title, info, img, li
                     {/* 인기 포트폴리오 */}
                     <div></div>
                     {/* 인기 블로그 */}
-                    <div></div>
+                    <div>
+                        <MainPost />
+                    </div>
                 </div>
             </MainPageStyled>
         </>

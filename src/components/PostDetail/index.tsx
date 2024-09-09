@@ -26,7 +26,7 @@ const PostContent = styled.div`
 const PostDetail = () => {
     const router = useRouter();
     const { id } = router.query; // query에서 id를 가져옵니다.
-    const [post, setPost] = useState<{ title: string; tag: string; content: string } | null>(null);
+    const [post, setPost] = useState<{ date: String; title: string; tag: string; content: string } | null>(null);
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
@@ -38,6 +38,7 @@ const PostDetail = () => {
                     const currentPost = postsArray.find((post: { id: string }) => post.id === id);
                     if (currentPost) {
                         setPost({
+                            date: currentPost.date,
                             title: currentPost.title,
                             tag: currentPost.tag,
                             content: currentPost.content,
@@ -57,7 +58,7 @@ const PostDetail = () => {
         <PostDetailStyled>
             <div className="pageBox">
                 <div className="postBox">
-                    {/* <div></div> */}
+                    <div className='date'>{post.date}</div>
                     <div className="title">{post.title}</div>
                     <div className="tag">{post.tag}</div>
                     <div className="content">

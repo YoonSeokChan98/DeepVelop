@@ -11,6 +11,9 @@ const PostDetailStyled = styled.div`
             margin: 0 auto;
             padding: 10px;
             /* text-align: center; */
+            .date{
+                color: gray;
+            }
             .title {
                 font-size: 3rem;
                 border-bottom: 1px solid;
@@ -21,6 +24,9 @@ const PostDetailStyled = styled.div`
                 border-bottom: 1px solid;
             }
             .content {
+                height: 35rem;
+                /* overflow-y: auto; */
+                overflow: auto;
                 padding-bottom: 10px;
                 /* border-top: 1px solid; */
                 border-bottom: 1px solid;

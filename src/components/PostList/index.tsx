@@ -1,64 +1,37 @@
-import styled from 'styled-components';
+import React from 'react';
 import PostListStyled from './styled';
 import { useRouter } from 'next/router';
-import { useState } from 'react';
+// import PostListStyled from './PostListStyled';
 
-const PostContent = styled.div`
-    margin-top: 20px;
-    width: 100%;
-    img,
-    figure,
-    div,
-    article,
-    picture,
-    iframe,
-    p {
-        width: 100% !important;
-    }
-    div {
-        max-width: 100% !important;
-    }
-    img {
-        object-fit: cover;
-    }
-`;
-
-interface PostListPsops {
-    item: {
-        id: any;
+interface PostListProps {
+    item?: {
+        id: string;
+        date: string;
         title: string;
         tag: string;
         content: string;
     };
 }
 
-const PostList = ({ item }: PostListPsops) => {
-    const { id, title, tag, content } = item;
-    // console.log('item', item);
-    const [isHovering, setIsHovering] = useState(false);
+const PostList = ({ item }: PostListProps) => {
+    if (!item) {
+        return <div>게시물이 없습니다.</div>;
+    }
+    const { id, title, tag, date } = item;
 
     const router = useRouter();
-    const clickDetailPost = () => {
+
+    const handleClick = () => {
         router.push(`/myblog/postdetail/${id}`);
     };
 
-    const handleMouseOver =()=>{
-        setIsHovering(true)
-    }
-    const handleMouseOut =()=>{
-        setIsHovering(false)
-    }
-
     return (
         <PostListStyled>
-            <div onClick={clickDetailPost}>
-                <div className={isHovering ? "postListWrapGrow" : 'postListWrap'}
-                onMouseOver={handleMouseOver}
-                onMouseOut={handleMouseOut}>
-                    {/* <div>{id}</div> */}
-                    <div className='title'>{title}</div>
-                    <div className='tag'>{tag}</div>
-                    {/* <PostContent dangerouslySetInnerHTML={{ __html: content }}></PostContent> */}
+            <div onClick={handleClick}>
+                <div className="postListWrap">
+                    <div className="date">{date}</div>
+                    <div className="title">{title}</div>
+                    <div className="tag">{tag}</div>
                 </div>
             </div>
         </PostListStyled>

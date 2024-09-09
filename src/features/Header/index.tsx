@@ -1,8 +1,13 @@
 import { useRouter } from 'next/router';
 import HeaderStyled from './styled';
+import { useState } from 'react';
 
 const Header = () => {
     const router = useRouter();
+    const [deepvelopText, setDeepvelop] = useState('DeepVelop');
+    const [mainText, setMainText] = useState('Main');
+    const [explainText, setExplainText] = useState('Explain');
+    const [myBlogText, setMyBlogText] = useState('My Blog');
 
     return (
         <>
@@ -14,8 +19,10 @@ const Header = () => {
                                 onClick={() => {
                                     router.push('/');
                                 }}
+                                onMouseEnter={()=> setDeepvelop('딥벨롭')}
+                                onMouseLeave={() => setDeepvelop('DeepVelop')}
                             >
-                                DeepVelop
+                                {deepvelopText}
                             </div>
                         </div>
                         <div className="nav">
@@ -23,22 +30,28 @@ const Header = () => {
                                 onClick={() => {
                                     router.push('/deepvelop');
                                 }}
+                                onMouseEnter={()=> setMainText('메인')}
+                                onMouseLeave={() => setMainText('Main')}
                             >
-                                main
+                                {mainText}
                             </div>
                             <div
                                 onClick={() => {
                                     router.push('/explain');
                                 }}
+                                onMouseEnter={()=> setExplainText('설명')}
+                                onMouseLeave={() => setExplainText('Explain')}
                             >
-                                explain
+                                {explainText}
                             </div>
                             <div
                                 onClick={() => {
                                     router.push('/myblog');
                                 }}
+                                onMouseEnter={()=> setMyBlogText('내 블로그')}
+                                onMouseLeave={() => setMyBlogText('My Blog')}
                             >
-                                my blog
+                                {myBlogText}
                             </div>
                         </div>
                     </div>

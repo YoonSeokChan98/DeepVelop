@@ -1,4 +1,6 @@
+import ScrollExplain from '@/components/ScrollExplain';
 import ExplainPageStyled from './styled';
+import WiseSaying from '@/components/WiseSaying';
 
 interface DataProps {
     handleCloseExplain: () => void;
@@ -10,6 +12,7 @@ const ExplainPage = ({ handleCloseExplain, showModal }: DataProps) => {
         <>
             <ExplainPageStyled>
                 <div className="explainPageWrap">
+                <WiseSaying />
                     <div className="Deep">Deep</div>
                     <div className="explainBox">
                         <div>
@@ -20,6 +23,7 @@ const ExplainPage = ({ handleCloseExplain, showModal }: DataProps) => {
                         <div className="explain2">자기개발을 깊게 하고 싶은 여러분을 위해 준비했습니다</div>
                     </div>
                     <div className="Velop">Velop</div>
+                    <ScrollExplain />
                     <div>{showModal ? <div onClick={handleCloseExplain}>오늘 하루 보지 않기</div> : <></>}</div>
                 </div>
             </ExplainPageStyled>

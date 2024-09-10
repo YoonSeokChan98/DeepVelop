@@ -11,21 +11,12 @@ const MainPageStyled = styled.div`
             display: flex;
             justify-content: center;
             .swiper-wrapper {
-                /* color: red; */
-                /* display: flex; */
-                /* flex-direction: column; */
-                /* justify-content: space-between; */
                 .swiper-slide {
-                    /* display: flex;
-                    flex-direction: column;
-                    justify-content: space-between; */
-                    /* align-items: center; */
-                    /* justify-content: center; */
                 }
             }
         }
         .mainPostWrap{
-            
+            width: 100%;
         }
     }
 `;

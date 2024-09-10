@@ -42,8 +42,6 @@ const MainPage = ({ handleOpenExplain }: DataProps, { name, title, info, img, li
         <>
             <MainPageStyled>
                 <div className="mainPageWrap">
-                    {/* <div onClick={handleOpenExplain}>test용 / 다시보기</div>
-                    <div>메인입니다~~~~</div> */}
                     <div className="wiseSaying">
                         <WiseSaying />
                     </div>
@@ -60,9 +58,10 @@ const MainPage = ({ handleOpenExplain }: DataProps, { name, title, info, img, li
                             {jobOpeningSwiper}
                         </Swiper>
                     </div>
-                    <div className='mainPostWrap'>
+                    <div className="mainPostWrap">
                         <MainPost />
                     </div>
+                    <div onClick={handleOpenExplain}>test용 / 다시보기</div>
                 </div>
             </MainPageStyled>
         </>

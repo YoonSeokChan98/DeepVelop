@@ -11,6 +11,7 @@ interface Post {
     title: string;
     tag: string;
     content: string;
+    image: any;
 }
 
 const MyBlogPage = () => {

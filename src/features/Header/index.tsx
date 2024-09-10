@@ -27,6 +27,7 @@ const Header = () => {
                         </div>
                         <div className="nav">
                             <div
+                                className='mainText'
                                 onClick={() => {
                                     router.push('/deepvelop');
                                 }}
@@ -36,6 +37,7 @@ const Header = () => {
                                 {mainText}
                             </div>
                             <div
+                                className='explainText'
                                 onClick={() => {
                                     router.push('/explain');
                                 }}

@@ -4,14 +4,6 @@ const PostListStyled = styled.div`
     .post {
         margin-top: 50px;
         border: 1px;
-        /* background-color: #dfdddd; */
-        /* display: flex;
-        justify-content: center;
-        align-items: center; */
-        /* display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 5px; */
-
         .card {
             margin: 10px;
             padding: 100px;
@@ -36,7 +28,8 @@ const PostListStyled = styled.div`
                 transform-origin: left;
                 transform-style: preserve-3d;
                 transition: all 1s ease;
-                /* z-index: 1; */
+                overflow: hidden;
+                /* text-overflow: ellipsis; */
                 img {
                     border-radius: 5px;
                     position: absolute;
@@ -46,13 +39,14 @@ const PostListStyled = styled.div`
                     height: 100%;
                     object-fit: cover;
                     backface-visibility: hidden;
-                    /* z-index: 1; */
                 }
                 .title {
                     position: absolute;
                     z-index: 2;
                     color: white;
                     font-size: x-large;
+                    /* overflow: hidden;
+                    text-overflow: ellipsis; */
                 }
                 .date {
                     position: absolute;
@@ -87,53 +81,6 @@ const PostListStyled = styled.div`
             box-shadow: 10px 0 20px rgba(0, 0, 0, 0.4);
         }
     }
-
-    /* .postListWrap {
-        display: flex;
-        position: relative;
-        flex-direction: column;
-        height: 350px;
-        width: 200px;
-        min-width: 250px;
-        padding: 1.5rem;
-        border-radius: 16px;
-        background: #fff;
-        border: 1px solid #ccc;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-        margin-right: -130px;
-
-        &:hover {
-            cursor: pointer;
-            transform: translateY(-3rem);
-            z-index: 1;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-            color: red;
-        }
-
-        &:hover ~ .postListWrap {
-            transform: translateX(130px);
-        }
-
-        &:not(:first-child) {
-            margin-left: 0;
-        }
-
-        .date {
-            font-size: 0.5rem;
-            color: gray;
-        }
-
-        .title {
-            font-size: 2rem;
-        }
-        .title,
-        .tag {
-            overflow: hidden;
-            text-overflow: ellipsis;
-            white-space: nowrap;
-        }
-    } */
 `;
 
 export default PostListStyled;

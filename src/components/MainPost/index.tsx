@@ -5,7 +5,7 @@ interface Post {
     date: string;
     title: string;
     tag: string;
-    content: string; // 이 content에 HTML 태그가 포함되어 있을 것으로 가정
+    content: string;
 }
 
 const MainPost = () => {
@@ -23,10 +23,15 @@ const MainPost = () => {
             <div className="MainPostBox">
                 {posts.length > 0 ? (
                     posts.map((post, index) => (
-                        <div key={index} className='postBox'>
-                            <div className="date">{post.date}</div>
-                            <div className="title">{post.title}</div>
-                            <div className="tag">{post.tag}</div>
+                        <div key={index} className="postBox">
+                            <div className="postHeader">
+                                <div className="date">{post.date}</div>
+                                <div className="title">{post.title}</div>
+                                <div className="tag">{post.tag}</div>
+                            </div>
+                            <div className="postContent">
+                                {post.content && <div className="content" dangerouslySetInnerHTML={{ __html: post.content }} />}
+                            </div>
                             {/* content를 HTML로 렌더링 */}
                             {/* <div className="content" dangerouslySetInnerHTML={{ __html: post.content }} /> */}
                         </div>

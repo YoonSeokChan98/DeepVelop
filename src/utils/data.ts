@@ -1,9 +1,17 @@
+// 공고 이미지
 import naver from '../assets/images/naver.jpg';
 import codingOn from '../assets/images/codingon.png';
 import line from '../assets/images/line.png';
 import kakao from '../assets/images/kakao.png';
 import coupang from '../assets/images/coupang.jpg';
 import delivery from '../assets/images/delivery.png';
+
+// 책 커버 이미지
+import book1 from '../assets/images/book1.jpg';
+import book2 from '../assets/images/book2.jpg';
+import book3 from '../assets/images/book3.jpg';
+import book4 from '../assets/images/book4.jpg';
+import book5 from '../assets/images/book5.jpg';
 
 export const jobOpeningData = [
     {
@@ -55,3 +63,5 @@ export const jobOpeningData = [
         link: 'https://career.woowahan.com/',
     },
 ];
+
+export const imgArray = [book1, book2, book3, book4, book5];

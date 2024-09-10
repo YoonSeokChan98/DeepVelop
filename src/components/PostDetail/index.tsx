@@ -58,7 +58,7 @@ const PostDetail = () => {
         <PostDetailStyled>
             <div className="pageBox">
                 <div className="postBox">
-                    <div className='date'>{post.date}</div>
+                    <div className="date">{post.date}</div>
                     <div className="title">{post.title}</div>
                     <div className="tag">{post.tag}</div>
                     <div className="content">

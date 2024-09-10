@@ -4,9 +4,10 @@ import styled from 'styled-components';
 // 스타일 정의
 const Container = styled.div`
     padding: 2rem;
-    padding-bottom: 400px;
+    padding-bottom: 100px;
     margin: 0 auto;
     max-width: 800px;
+    overflow-x: hidden;
 `;
 
 const TopSection = styled.div`

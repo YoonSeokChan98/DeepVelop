@@ -6,6 +6,10 @@ const HeaderStyled = styled.div`
         top: 0; */
         padding: 10px;
         border-bottom: 1px solid black;
+        /* -webkit-text-stroke: 1px white; */
+        /* background-color: white;
+        position: relative;
+        transition: border-bottom-color 0.3s ease-in-out; */
         .headerBox {
             display: flex;
             justify-content: space-between;
@@ -49,6 +53,23 @@ const HeaderStyled = styled.div`
             }
         }
     }
+    /* .headerWrap:before {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background-color: #004d00;
+        transform: scaleX(0);
+        transition: transform 0.3s ease-in-out;
+    }
+    .headerWrap:hover {
+        border-bottom-color: #004d00;
+    }
+    .headerWrap:hover::after {
+        transform: scaleX(1);
+    } */
 `;
 
 export default HeaderStyled;

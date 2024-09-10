@@ -1,14 +1,11 @@
 import React, { Dispatch, SetStateAction, useEffect, useRef, useState } from 'react';
 import WritePostStyled from './styled';
-
-import * as Yup from 'yup';
 import { useRouter } from 'next/router';
-// import ReactEditor from '../ReactEditor';
-// import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 import dynamic from 'next/dynamic';
 import { Button } from 'antd';
 import { useFormik } from 'formik';
+import { imgArray } from '@/utils/data';
 const ReactQuill = dynamic(() => import('react-quill'), { ssr: false });
 
 interface Post {
@@ -17,12 +14,18 @@ interface Post {
     title: string;
     tag: string;
     content: string;
+    image: any;
 }
+
 
 const WritePost = () => {
     const router = useRouter();
     const [savedPost, setSavedPost] = useState<Post[]>([]);
     const [content, setContent] = useState('');
+
+
+
+    
 
     useEffect(() => {
         // 로컬스토리지를 만들어줌
@@ -54,16 +57,31 @@ const WritePost = () => {
             tag: '',
         },
         onSubmit: (values) => {
+            const ran = Math.random() * 5
+            const randomN = Math.floor(ran);
+
+
+
+
             const newPost: Post = {
                 id: values.id,
                 date: values.date,
                 title: values.title,
                 tag: values.tag,
                 content: content,
+                image: imgArray[randomN]
+              
+
             };
+
+            
             const updatedPosts = [...savedPost, newPost];
+
             localStorage.setItem('posts', JSON.stringify(updatedPosts));
             // 폼 초기화
+
+
+
             postFormik.resetForm();
             router.push('/myblog');
         },

@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
 
 // 스타일 정의
@@ -61,7 +61,7 @@ const Section = styled.div`
     padding: 1rem;
     border-radius: 1rem;
     align-items: center;
-    min-height: 300px;
+    min-height: 10rem;
 
     &:nth-child(odd) {
         flex-direction: row-reverse;
@@ -101,6 +101,7 @@ const ScrollExplain: React.FC = () => {
     const lineRef = useRef<HTMLDivElement>(null);
     const sectionsRef = useRef<HTMLDivElement[]>([]);
     const prevScrollY = useRef<number>(0);
+    const [whatText, setWhatText] = useState('" What story do you have? "');
     let up = false;
     let down = false;
     let full = false;
@@ -118,7 +119,6 @@ const ScrollExplain: React.FC = () => {
 
     const scrollHandler = () => {
         if (typeof window === 'undefined') return;
-
         const scrollY = window.scrollY;
         up = scrollY < prevScrollY.current;
         down = !up;
@@ -165,9 +165,7 @@ const ScrollExplain: React.FC = () => {
         <Container>
             <TopSection>
                 <h1>DeepVelop</h1>
-                <p>
-                    
-                </p>
+                <p></p>
             </TopSection>
             <TimelineWrapper ref={ScrollEExplainRef}>
                 <Line ref={lineRef} />
@@ -188,7 +186,13 @@ const ScrollExplain: React.FC = () => {
                     </Section>
                 ))}
             </TimelineWrapper>
-                <div style={{textAlign:'center', fontWeight:'bolder', paddingTop:'50px', fontSize:'3rem'}}>" The End. "</div>
+            <div
+                onMouseEnter={() => setWhatText('당신은 어떤 이야기를 가지고 있나요?')}
+                onMouseLeave={() => setWhatText('" What story do you have? "')}
+                style={{ textAlign: 'center', fontWeight: 'bolder', paddingTop: '50px', fontSize: '1.5rem' }}
+            >
+                {whatText}
+            </div>
         </Container>
     );
 };

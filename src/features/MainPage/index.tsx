@@ -49,7 +49,7 @@ const MainPage = ({ handleOpenExplain }: DataProps, { name, title, info, img, li
                         <Swiper
                             className="swiperWrap"
                             centeredSlides={true}
-                            loop={true}
+                            // loop={true}
                             autoplay={{ delay: 4000, disableOnInteraction: false }}
                             modules={[Navigation, Pagination, Autoplay]}
                             spaceBetween={0}
@@ -61,7 +61,7 @@ const MainPage = ({ handleOpenExplain }: DataProps, { name, title, info, img, li
                     <div className="mainPostWrap">
                         <MainPost />
                     </div>
-                    <div onClick={handleOpenExplain}>test용 / 다시보기</div>
+                    <div onClick={handleOpenExplain} style={{color:"#ccc", cursor:'pointer'}}>test용 / 다시보기</div>
                 </div>
             </MainPageStyled>
         </>

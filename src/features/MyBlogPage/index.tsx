@@ -93,6 +93,7 @@ const MyBlogPage = () => {
                             console.log('removeLocal');
                             onClickRemoveLocal();
                         }}
+                        style={{ color: '#ccc', cursor: 'pointer' }}
                     >
                         로컬스토리지 비우기
                     </div>

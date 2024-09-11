@@ -24,7 +24,7 @@ const ExplainPage = ({ handleCloseExplain, showModal }: DataProps) => {
                     </div>
                     <div className="Velop">Velop</div>
                     <ScrollExplain />
-                    <div>{showModal ? <div onClick={handleCloseExplain}>오늘 하루 보지 않기</div> : <></>}</div>
+                    <div>{showModal ? <div onClick={handleCloseExplain} style={{color:'#ccc', cursor:'pointer'}}>오늘 하루 보지 않기</div> : <></>}</div>
                 </div>
             </ExplainPageStyled>
         </>

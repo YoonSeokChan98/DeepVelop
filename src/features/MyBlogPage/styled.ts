@@ -82,6 +82,36 @@ const MyBlogPageStyled = styled.div`
             }
         }
     }
+    /* 모바일 가로 & 테블릿 세로 (해상도 480px ~ 767px)*/
+    @media screen and (min-width: 480px) {
+        //스타일 입력
+    }
+
+    /* 테블릿 가로 (해상도 768px ~ 1023px)*/
+    @media screen and (min-width: 768px) {
+        .myBlogWrap {
+            .postWrap {
+                .postList {
+                    .postGrid {
+                        grid-template-columns: repeat(3, 1fr);
+                    }
+                }
+            }
+        }
+    }
+
+    /* 노트북 & 테블릿 가로 (해상도 1024px ~ 1279px)*/
+    @media screen and (min-width: 1024px) {
+        .myBlogWrap {
+            .postWrap {
+                .postList {
+                    .postGrid {
+                        grid-template-columns: repeat(4, 1fr);
+                    }
+                }
+            }
+        }
+    }
 `;
 
 export default MyBlogPageStyled;

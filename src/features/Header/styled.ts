@@ -5,7 +5,7 @@ const HeaderStyled = styled.div`
         /* position: fixed;
         top: 0; */
         padding: 10px;
-        border-bottom: 1px solid black;
+        border-bottom: 1px dashed #ccc;
         /* -webkit-text-stroke: 1px white; */
         /* background-color: white;
         position: relative;
@@ -15,6 +15,7 @@ const HeaderStyled = styled.div`
             justify-content: space-between;
             .logo {
                 div {
+                    /* display: inline-block; */
                     width: 90px;
                     text-align: center;
                     font-size: large;
@@ -23,7 +24,7 @@ const HeaderStyled = styled.div`
                     background-size: 0% 100%;
                     transition: background-size 0.5s;
                     cursor: pointer;
-                    margin: 10px 10px;
+                    margin: 10px 0px;
                     background-image: linear-gradient(transparent 95%, #000 80%);
                 }
                 div:hover {
@@ -31,24 +32,32 @@ const HeaderStyled = styled.div`
                 }
             }
             .nav {
+                /* border: 1px solid; */
+                width: 15rem;
                 display: flex;
+                justify-content: space-between;
                 div {
-                    /* border: 1px solid; */
-                    width: 90px;
                     text-align: center;
-                    /* margin: 0 10px; */
-                    /* padding-right: 10px; */
                     font-size: large;
                     background-image: linear-gradient(transparent calc(100% - 3px), #000 3px);
                     background-repeat: no-repeat;
                     background-size: 0% 100%;
                     transition: background-size 0.5s;
                     cursor: pointer;
-                    margin: 10px 20px;
+                    margin: 10px 0px;
                     background-image: linear-gradient(transparent 95%, #000 80%);
                 }
                 div:hover {
                     background-size: 100% 100%;
+                }
+                .mainText {
+                    width: 50px;
+                }
+                .explainText {
+                    width: 60px;
+                }
+                .myBlogText {
+                    width: 75px;
                 }
             }
         }
@@ -70,6 +79,9 @@ const HeaderStyled = styled.div`
     .headerWrap:hover::after {
         transform: scaleX(1);
     } */
+    .headerWrap:hover {
+        border-bottom: 1px dashed black;
+    }
 `;
 
 export default HeaderStyled;

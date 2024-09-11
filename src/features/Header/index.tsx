@@ -19,7 +19,7 @@ const Header = () => {
                                 onClick={() => {
                                     router.push('/');
                                 }}
-                                onMouseEnter={()=> setDeepvelop('딥벨롭')}
+                                onMouseEnter={() => setDeepvelop('딥벨롭')}
                                 onMouseLeave={() => setDeepvelop('DeepVelop')}
                             >
                                 {deepvelopText}
@@ -27,30 +27,31 @@ const Header = () => {
                         </div>
                         <div className="nav">
                             <div
-                                className='mainText'
+                                className="mainText"
                                 onClick={() => {
                                     router.push('/deepvelop');
                                 }}
-                                onMouseEnter={()=> setMainText('메인')}
+                                onMouseEnter={() => setMainText('메인')}
                                 onMouseLeave={() => setMainText('Main')}
                             >
                                 {mainText}
                             </div>
                             <div
-                                className='explainText'
+                                className="explainText"
                                 onClick={() => {
                                     router.push('/explain');
                                 }}
-                                onMouseEnter={()=> setExplainText('설명')}
+                                onMouseEnter={() => setExplainText('설명')}
                                 onMouseLeave={() => setExplainText('Explain')}
                             >
                                 {explainText}
                             </div>
                             <div
+                                className="myBlogText"
                                 onClick={() => {
                                     router.push('/myblog');
                                 }}
-                                onMouseEnter={()=> setMyBlogText('내 블로그')}
+                                onMouseEnter={() => setMyBlogText('내 블로그')}
                                 onMouseLeave={() => setMyBlogText('My Blog')}
                             >
                                 {myBlogText}

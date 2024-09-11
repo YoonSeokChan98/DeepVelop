@@ -34,12 +34,27 @@ const WritePostStyled = styled.div`
                 .quill {
                     height: 90%;
                 }
+                /* .ReactQuill::placeholder{
+                    font-size: 100px;
+                } */
             }
         }
         .btn {
-            margin-top: 0px;
+            /* border: 1px solid; */
+            margin-top: 10px;
+            padding: 5px;
             width: 100%;
             text-align: center;
+            button{
+                border: 1px dashed;
+                border-radius: 5px;
+                padding: 5px 10px;
+                background-color: white;
+            }
+            button:hover{
+                border: 1px solid;
+                color: red;
+            }
         }
     }
 `;

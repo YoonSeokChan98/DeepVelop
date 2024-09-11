@@ -2,20 +2,11 @@ import React, { useEffect, useState } from 'react';
 import WritePostStyled from './styled';
 import { useRouter } from 'next/router';
 import 'react-quill/dist/quill.snow.css';
-import dynamic from 'next/dynamic';
-import { Button } from 'antd';
 import { useFormik } from 'formik';
+import * as Yup from 'yup';
 import { imgArray } from '@/utils/data';
+import dynamic from 'next/dynamic';
 const ReactQuill = dynamic(() => import('react-quill'), { ssr: false });
-
-// interface Post {
-//     id: string;
-//     date: string;
-//     title: string;
-//     tag: string;
-//     content: string;
-//     image: any;
-// }
 
 const WritePost = () => {
     const router = useRouter();
@@ -23,15 +14,11 @@ const WritePost = () => {
     const [content, setContent] = useState('');
 
     useEffect(() => {
-        // 로컬스토리지를 만들어줌
         const savedPost = JSON.parse(localStorage.getItem('posts') || '[]') as [];
         setSavedPost(savedPost);
     }, []);
 
-    // 현재 날짜와 시간을 가져오기
     const currentDate = new Date();
-
-    // 각 구성 요소를 가져오기
     const year = currentDate.getFullYear();
     const month = currentDate.getMonth() + 1;
     const day = currentDate.getDate();
@@ -39,18 +26,26 @@ const WritePost = () => {
     const minutes = currentDate.getMinutes();
     const seconds = currentDate.getSeconds();
 
-    // 날짜와 시간을 문자열로 포맷팅
     const formattedDate = `${year}-${String(month).padStart(2, '0')}-${String(day).padStart(2, '0')} ${String(
         hours
     ).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
 
-    const postFormik:any = useFormik({
+    const postFormik: any = useFormik({
         initialValues: {
             id: Date.now() + Math.random().toString(36).substr(2, 9),
             date: formattedDate,
             title: '',
             tag: '',
+            content: '', // content 추가
         },
+        validationSchema: Yup.object({
+            title: Yup.string().required('제목을 입력해주세요'),
+            tag: Yup.string().required('태그를 입력해주세요'),
+            content: Yup.string().test('is-not-empty', '내용을 입력해주세요', (value: any) => {
+                const plainText = value ? value.replace(/<[^>]*>?/gm, '').trim() : '';
+                return plainText !== ''; // 빈 문자열이면 에러 발생
+            }),
+        }),
         onSubmit: (values) => {
             const ran = Math.random() * 5;
             const randomN = Math.floor(ran);
@@ -65,9 +60,7 @@ const WritePost = () => {
             };
 
             const updatedPosts = [...savedPost, newPost];
-
             localStorage.setItem('posts', JSON.stringify(updatedPosts));
-            // 폼 초기화
 
             postFormik.resetForm();
             router.push('/myblog');
@@ -77,12 +70,12 @@ const WritePost = () => {
     const modules = {
         toolbar: [
             [{ font: [] }],
-            [{ size: ['small', false, 'large', 'huge'] }], // custom dropdown
+            [{ size: ['small', false, 'large', 'huge'] }],
             [{ header: [1, 2, 3, 4, 5, 6, false] }],
-            [{ color: [] }, { background: [] }], // dropdown with defaults from theme
+            [{ color: [] }, { background: [] }],
             ['bold', 'italic', 'underline', 'strike', 'blockquote'],
             [{ list: 'ordered' }, { list: 'bullet' }, { indent: '-1' }, { indent: '+1' }],
-            ['link', 'image'],
+            ['image'],
             ['clean'],
         ],
     };
@@ -101,7 +94,6 @@ const WritePost = () => {
         'list',
         'bullet',
         'indent',
-        'link',
         'image',
     ];
 
@@ -115,7 +107,6 @@ const WritePost = () => {
                                 <input
                                     name="title"
                                     onChange={postFormik.handleChange}
-                                    // onBlur={postFormik.handleBlur}
                                     value={postFormik.values.title}
                                     placeholder="제목"
                                 />
@@ -127,9 +118,8 @@ const WritePost = () => {
                                 <input
                                     name="tag"
                                     onChange={postFormik.handleChange}
-                                    // onBlur={postFormik.handleBlur}
                                     value={postFormik.values.tag}
-                                    placeholder="태그"
+                                    placeholder="부제목"
                                 />
                                 {postFormik.touched.tag && postFormik.errors.tag ? (
                                     <div style={{ color: 'red' }}>{postFormik.errors.tag}</div>
@@ -139,12 +129,16 @@ const WritePost = () => {
                                 <ReactQuill
                                     onChange={(value: string) => {
                                         setContent(value);
+                                        postFormik.setFieldValue('content', value); // formik content에 값 설정
                                     }}
                                     theme="snow"
                                     formats={formats}
                                     modules={modules}
-                                    placeholder='당신은 어떤 이야기를 가지고 있나요?'
+                                    placeholder="당신은 어떤 이야기를 가지고 있나요?"
                                 />
+                                {postFormik.touched.content && postFormik.errors.content ? (
+                                    <div style={{ color: 'red' }}>{postFormik.errors.content}</div>
+                                ) : null}
                             </div>
                             <div className="btn">
                                 <button type="submit">저장하기</button>

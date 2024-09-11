@@ -17,15 +17,10 @@ interface Post {
     image: any;
 }
 
-
 const WritePost = () => {
     const router = useRouter();
     const [savedPost, setSavedPost] = useState<Post[]>([]);
     const [content, setContent] = useState('');
-
-
-
-    
 
     useEffect(() => {
         // 로컬스토리지를 만들어줌
@@ -57,11 +52,8 @@ const WritePost = () => {
             tag: '',
         },
         onSubmit: (values) => {
-            const ran = Math.random() * 5
+            const ran = Math.random() * 5;
             const randomN = Math.floor(ran);
-
-
-
 
             const newPost: Post = {
                 id: values.id,
@@ -69,18 +61,13 @@ const WritePost = () => {
                 title: values.title,
                 tag: values.tag,
                 content: content,
-                image: imgArray[randomN]
-              
-
+                image: imgArray[randomN],
             };
 
-            
             const updatedPosts = [...savedPost, newPost];
 
             localStorage.setItem('posts', JSON.stringify(updatedPosts));
             // 폼 초기화
-
-
 
             postFormik.resetForm();
             router.push('/myblog');

@@ -16,7 +16,7 @@ const ExplainPage = ({ handleCloseExplain, showModal }: DataProps) => {
                     <div className="Deep">Deep</div>
                     <div className="explainBox">
                         <div>
-                            <div className="WelcomeText">"Welcome to DeepVelop"</div>
+                            <div className="WelcomeText">&quot;Welcome to DeepVelop&quot;</div>
                             <div className="smallText">deep + develop</div>
                         </div>
                         <div className="explain1">deep의 깊은과 devlop의 합성어</div>

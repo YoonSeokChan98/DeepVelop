@@ -50,7 +50,7 @@ const MyBlogPage = () => {
             <div className="myBlogWrap">
                 <WiseSaying />
                 <div className="userNameBox">
-                    <div className="userName">"유저이름" Blog</div>
+                    <div className="userName">&quot;유저이름&quot; Blog</div>
                 </div>
                 <div className="postWrap">
                     <div className="postTitleBox">

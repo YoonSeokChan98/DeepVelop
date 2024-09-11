@@ -16,14 +16,14 @@ interface PostListProps {
 }
 
 const PostList = ({ item }: PostListProps) => {
+    const router = useRouter();
     // console.log(coverImg);
-
+    
     if (!item) {
         return <div>게시물이 없습니다.</div>;
     }
     const { id, title, tag, date, content ,image} = item;
 
-    const router = useRouter();
 
     const handleClick = () => {
         router.push(`/myblog/postdetail/${id}`);

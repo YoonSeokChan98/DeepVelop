@@ -26,18 +26,25 @@ const PostContent = styled.div`
 const PostDetail = () => {
     const router = useRouter();
     const { id } = router.query; // query에서 id를 가져옵니다.
-    const [post, setPost] = useState<{ date: String; title: string; tag: string; content: string } | null>(null);
+    const [post, setPost] = useState<{ date: String; title: string; tag: string; content: string; img: any } | null>(
+        null
+    );
+    console.log(post, 'post');
+
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         if (typeof window !== 'undefined' && id) {
             const fetchPosts = () => {
                 const posts = localStorage.getItem('posts');
+                console.log(posts, 'posts');
+
                 if (posts) {
                     const postsArray = JSON.parse(posts);
                     const currentPost = postsArray.find((post: { id: string }) => post.id === id);
                     if (currentPost) {
                         setPost({
+                            img: currentPost.image,
                             date: currentPost.date,
                             title: currentPost.title,
                             tag: currentPost.tag,
@@ -58,11 +65,16 @@ const PostDetail = () => {
         <PostDetailStyled>
             <div className="pageBox">
                 <div className="postBox">
-                    <div className="date">{post.date}</div>
-                    <div className="title">{post.title}</div>
-                    <div className="tag">{post.tag}</div>
-                    <div className="content">
-                        <PostContent dangerouslySetInnerHTML={{ __html: post.content }}></PostContent>
+                    <div className="cover">
+                        <img src={post.img.src} />
+                    </div>
+                    <div className="contentBox">
+                        <div className="date">{post.date}</div>
+                        <div className="title">{post.title}</div>
+                        <div className="tag">{post.tag}</div>
+                        <div className="content">
+                            <PostContent dangerouslySetInnerHTML={{ __html: post.content }}></PostContent>
+                        </div>
                     </div>
                 </div>
             </div>

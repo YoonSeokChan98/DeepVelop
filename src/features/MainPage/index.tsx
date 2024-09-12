@@ -3,14 +3,15 @@ import 'swiper/css';
 // import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 // import 'swiper/css/scrollbar';
-import { Navigation, Pagination, Autoplay } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { jobOpeningData } from '@/utils/data';
 import JobOpening from '@/components/JobOpening';
 import WiseSaying from '@/components/WiseSaying';
 import PostList from '@/components/PostList';
 import MainPost from '@/components/MainPost';
+import SwiperCore, { Autoplay } from 'swiper';
 
+SwiperCore.use([Autoplay]);
 interface DataProps {
     handleOpenExplain: () => void;
 }
@@ -45,23 +46,34 @@ const MainPage = ({ handleOpenExplain }: DataProps, { name, title, info, img, li
                     <div className="wiseSaying">
                         <WiseSaying />
                     </div>
-                    <div>
-                        <Swiper
-                            className="swiperWrap"
-                            centeredSlides={true}
-                            // loop={true}
-                            autoplay={{ delay: 4000, disableOnInteraction: false }}
-                            modules={[Navigation, Pagination, Autoplay]}
-                            spaceBetween={0}
-                            slidesPerView={1}
-                        >
-                            {jobOpeningSwiper}
-                        </Swiper>
-                    </div>
+
+                    <Swiper
+                        className="swiperWrap"
+                 
+                        loop={true}
+                        autoplay={{ delay: 4000, disableOnInteraction: false }}
+                        spaceBetween={0}
+                        slidesPerView={1}
+                    >
+                       {jobOpeningData ?
+                          jobOpeningData?.map((x: JobOpeningData, i: number) => {
+                            return (
+                                <SwiperSlide key={`${i}-job`}>
+                                    <JobOpening item={x} />
+                                </SwiperSlide>
+                            );
+                        })
+                        :
+                        <div>현재 공고가 없습니다!</div>
+                    }
+                    </Swiper>
+
                     <div className="mainPostWrap">
                         <MainPost />
                     </div>
-                    <div onClick={handleOpenExplain} style={{color:"#ccc", cursor:'pointer'}}>test용 / 다시보기</div>
+                    <div onClick={handleOpenExplain} style={{ color: '#ccc', cursor: 'pointer' }}>
+                        test용 / 다시보기
+                    </div>
                 </div>
             </MainPageStyled>
         </>

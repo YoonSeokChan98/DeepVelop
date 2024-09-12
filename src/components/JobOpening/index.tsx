@@ -16,18 +16,18 @@ const JobOpening = ({ item }: JobOpeningData) => {
     return (
         <>
             <JobOpeningStyled>
-                <div className="JobOpeningBox">
-                    <a href={link} target="_blank">
-                        <div className="imgBox">
-                            <img className="sibar" src={img} />
+             
+                    <div className="imgBox" onClick={()=>{
+                        window.open(link,"_blank")
+                    }}>
+                        <img  src={img} alt='' />
+                        <div className="content">
+                            <div>{name}</div>
+                            <div>{title}</div>
+                            <div>{info}</div>
                         </div>
-                        <div>
-                            <div>회사명: {name}</div>
-                            <div>제목: {title}</div>
-                            <div>내용: {info}</div>
-                        </div>
-                    </a>
-                </div>
+                    </div>
+          
             </JobOpeningStyled>
         </>
     );

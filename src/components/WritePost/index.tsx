@@ -40,7 +40,7 @@ const WritePost = () => {
         },
         validationSchema: Yup.object({
             title: Yup.string().required('제목을 입력해주세요'),
-            tag: Yup.string().required('태그를 입력해주세요'),
+            tag: Yup.string().required('부제목을 입력해주세요'),
             content: Yup.string().test('is-not-empty', '내용을 입력해주세요', (value: any) => {
                 const plainText = value ? value.replace(/<[^>]*>?/gm, '').trim() : '';
                 return plainText !== ''; // 빈 문자열이면 에러 발생

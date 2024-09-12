@@ -92,7 +92,7 @@ const Content = styled.div`
 
 // 이벤트 데이터 타입 정의
 interface Event {
-    number: string;
+    title: string;
     content: string;
 }
 
@@ -110,11 +110,11 @@ const ScrollExplain: React.FC = () => {
 
     // 이벤트 데이터 배열
     const events: Event[] = [
-        { number: '"Vision"', content: '여러분의 상상력을 통해서 무엇이 목표인지 고민해 보세요' },
-        { number: '"Design"', content: '목표가 정해지면 어떻게 해낼 것인지 설계를 해보세요' },
-        { number: '"Story"', content: '당신의 이야기를 직접 작성하여 저에게 들려주세요' },
-        { number: '"Hero"', content: '이야기의 주인공이 되어 모험을 떠나보세요!' },
-        { number: 'Deepvlop', content: '저희가 여러분의 이야기를 보관하겠습니다.' },
+        { title: '"Vision"', content: '여러분의 상상력을 통해서 무엇이 목표인지 고민해 보세요' },
+        { title: '"Design"', content: '목표가 정해지면 어떻게 해낼 것인지 설계를 해보세요' },
+        { title: '"Story"', content: '당신의 이야기를 직접 작성하여 저에게 들려주세요' },
+        { title: '"Hero"', content: '이야기의 주인공이 되어 모험을 떠나보세요!' },
+        { title: 'Deepvlop', content: '저희가 여러분의 이야기를 보관하겠습니다.' },
     ];
 
     const scrollHandler = () => {
@@ -180,7 +180,7 @@ const ScrollExplain: React.FC = () => {
                     >
                         <Bead />
                         <Content>
-                            <h2>{event.number}</h2>
+                            <h2>{event.title}</h2>
                             <p>{event.content}</p>
                         </Content>
                     </Section>

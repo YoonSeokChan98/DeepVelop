@@ -6,12 +6,26 @@ import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import { imgArray } from '@/utils/data';
 import dynamic from 'next/dynamic';
+// import { Tag } from 'antd';
 const ReactQuill = dynamic(() => import('react-quill'), { ssr: false });
 
 const WritePost = () => {
     const router = useRouter();
     const [savedPost, setSavedPost] = useState<any>([]);
     const [content, setContent] = useState('');
+    // const [tags, setTags] = useState<string[]>(['']);
+    // const [inputVisible, setInputVisible] = useState(false);
+    // const [inputValue, setInputValue] = useState('');
+    // const showInput = () => {
+    //     setInputVisible(true);
+    // };
+    // const handleInputConfirm = () => {
+    //     if (inputValue && !tags.includes(inputValue)) {
+    //         setTags([...tags, inputValue]);
+    //     }
+    //     setInputVisible(false);
+    //     setInputValue('');
+    // };
 
     useEffect(() => {
         const savedPost = JSON.parse(localStorage.getItem('posts') || '[]') as [];
@@ -54,7 +68,7 @@ const WritePost = () => {
                 id: values.id,
                 date: values.date,
                 title: values.title,
-                tag: values.tag,
+                // tag: values.tag,
                 content: content,
                 image: imgArray[randomN],
             };

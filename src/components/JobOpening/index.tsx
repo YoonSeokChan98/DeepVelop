@@ -4,30 +4,28 @@ interface JobOpeningData {
     item: { name: string; title: string; info: string; img: { src?: string }; link?: string };
 }
 const JobOpening = ({ item }: JobOpeningData) => {
-    // console.log('JobOpeningData',item);
     const name = item.name;
     const title = item.title;
     const info = item.info;
     const img = item.img.src;
-    // console.log(img);
     const link = item.link;
-    // console.log(link);
 
     return (
         <>
             <JobOpeningStyled>
-             
-                    <div className="imgBox" onClick={()=>{
-                        window.open(link,"_blank")
-                    }}>
-                        <img  src={img} alt='' />
-                        <div className="content">
-                            <div>{name}</div>
-                            <div>{title}</div>
-                            <div>{info}</div>
-                        </div>
+                <div
+                    className="imgBox"
+                    onClick={() => {
+                        window.open(link, '_blank');
+                    }}
+                >
+                    <img src={img} alt="" />
+                    <div className="content">
+                        <div>{name}</div>
+                        <div>{title}</div>
+                        <div>{info}</div>
                     </div>
-          
+                </div>
             </JobOpeningStyled>
         </>
     );

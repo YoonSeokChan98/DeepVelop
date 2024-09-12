@@ -19,12 +19,9 @@ const ExplainPageStyled = styled.div`
             .WelcomeText {
                 font-size: x-large;
                 font-weight: bold;
-                background-image: linear-gradient(transparent calc(100% - 3px), #000 3px);
                 background-repeat: no-repeat;
                 background-size: 0% 100%;
                 transition: background-size 0.8s;
-                color: #000;
-                /* cursor: pointer; */
                 background-image: linear-gradient(transparent 60%, #f8cd07 40%);
             }
             .WelcomeText:hover {
@@ -37,41 +34,11 @@ const ExplainPageStyled = styled.div`
                 margin-right: 10px;
                 font-size: xx-small;
             }
-            /* .explain1 {
-                background-image: linear-gradient(transparent calc(100% - 3px), #000 3px);
-                background-repeat: no-repeat;
-                background-size: 0% 100%;
-                transition: background-size 0.8s;
-                color: #000;
-                cursor: pointer;
-                background-image: linear-gradient(transparent 60%, #f8cd07 40%);
-            }
-            .explain1:hover {
-                background-size: 100% 100%;
-            } */
-            /* .explain2 {
-                background-image: linear-gradient(transparent calc(100% - 3px), #000 3px);
-                background-repeat: no-repeat;
-                background-size: 0% 100%;
-                transition: background-size 0.8s;
-                color: #000;
-                cursor: pointer;
-                background-image: linear-gradient(transparent 60%, #f8cd07 40%);
-            }
-            .explain2:hover {
-                background-size: 100% 100%;
-            } */
         }
         .explainBox:hover {
             .WelcomeText {
                 font-size: x-large;
                 font-weight: bold;
-                background-image: linear-gradient(transparent calc(100% - 3px), #000 3px);
-                background-repeat: no-repeat;
-                background-size: 0% 100%;
-                transition: background-size 0.8s;
-                color: #000;
-                /* cursor: pointer; */
                 background-image: linear-gradient(transparent 60%, #f8cd07 40%);
                 background-size: 100% 100%;
             }

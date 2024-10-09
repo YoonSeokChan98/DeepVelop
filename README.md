@@ -27,6 +27,8 @@
 | 설명 페이지 |
 |---------|
 |<img src="https://github.com/user-attachments/assets/fd76b379-9761-4cf2-ae66-23d829158417">|
+
+[설명 페이지]
 + 스크롤을 내릴 시 DeepVelop에 대해서 설명을 해주는 세션들이 하나씩 나오게 구현
 + 오늘 하루 보지 않기를 누르면 로컬 스토리지에 쿠키를 만들고 쿠키가 존재하면 새로 고침해도 메인 화면이 먼저 보이게 구현
 
@@ -34,6 +36,8 @@
 | 블로그 페이지 |
 |---------|
 | ![ezgif-5-8dbd88c002](https://github.com/user-attachments/assets/12b4ecfa-4040-4849-b701-32cdb13ceab7)|
+
+[블로그 페이지]
 + Quill 라이브러리를 사용해서 글 작성 편집기를 구현
 + 작성된 게시글은 css를 사용해서 책 디자인으로 구현
 
@@ -41,6 +45,8 @@
 | 글작성 - 유효성 검사 | 글작성 - 저장하기 |
 |---------|---------|
 |![유효성검사](https://github.com/user-attachments/assets/77f1f67f-764c-4ce0-8e3e-29d359910222)|![글 작성](https://github.com/user-attachments/assets/5bc5b412-0c71-48ff-85ca-2f907dac41fe)|
+
+[글작성]
 + useFormik과 yup으로 유효성 검사에 제목, 부제목, 내용이 다 작성이 된 경우에만 저장이 가능
 
 
